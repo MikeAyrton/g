@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ products.name }}</title>
+	<link rel="icon" href="img/Fevicon.png" type="image/png">
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/nouislider/nouislider.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    .btn-1:hover{
+      border: 1px solid red !important;
+    }
+    section{
+      margin-top: 1%;
+    }
+    .div{
+      display: flex;
+    }
+    .div_2 {
+      margin-top: 6%;
+    }
+    .div_2 h2{
+      font-size: 40px;
+    }
+    
+    .div_2 p{
+      font-size: 25px;
+    }
+    .btns a{
+      text-decoration: none;
+      color: #fff;
+      font-size: 25px;
+      border: #fff 2px solid;
+      background: #007bff;
+      padding: 6px 15px;
+      margin-right: 15%;
+      margin-top: 4%;
+      width: 100%;
+    }
+    .btns a:hover{
+      color: #fff;
+    }
+    .w{
+      margin-top: 3%;
+    }
+    .hr{
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!--================ Start Header Menu Area =================-->
+	<header class="header_area">
+    <div class="main_menu">
+
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand logo_h" href="{% url 'main_page' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+              <li class="nav-item active"><a class="nav-link" href="{% url 'main_page' %}">Home</a></li>
+              <li class="nav-item">
+                <a href="{% url 'category' %}" class="nav-link"
+                  >Shop</a>
+							</li>
+              <li class="nav-item">
+                <a href="{% url 'blog' %}" class="nav-link dropdown-toggle">Blog</a>
+							</li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+
+            <ul class="nav-shop">
+              <li class="nav-item"><a href="{% url 'favorite_list' %}"><i class="far fa-star"></i></a></li>              <li class="nav-item"><button><a href="{% url 'cart' %}"><i class="ti-shopping-cart"></i><span
+              class="nav-shop__circle"></span></a></button>
+              <li class="nav-item"><button><i class="far fa-user" style="margin-right:8px;"></i>{{ request.user }}</li></i></button></li>
+              <li  class="nav-item"><a class="button button-header" href="{% url 'update_product' products.id %}">Edit</a></li>
+              
+            </ul>
+       
+            <li style="list-style-type: none;" class="nav-item"><a class="button button-header btn-1" href="{% url 'delete_product' products.id %}">Delete</a></li>
+
+          </div>
+        </div>
+
+      </nav>
+    </div>
+
+  </header>
+
+  <section>
+    <div class="container">
+        <div class="section">
+
+        <div class="div">
+          <div class="div_1">
+             <img class="img" src="{{ products.image.url }}" alt="">
+          </div>
+          <div class="div_2">
+            <h2>{{products.name}}  {{products.color}} {{products.memory}}</h2>
+            <p>{{products.category}}</p>
+            
+            <h3>${{products.price}}</h3>
+            <div class="btns">
+              <table>
+                <tr>
+                  <th>
+                    <a href="{% url 'cart_add' products.id %}" class="btn btn-primary"><i class="ti-shopping-cart"> </i>Add to cart</a>
+                  </th>
+                  <th>
+                    <a href="{% url 'favorite_add' products.id %}" class="btn btn-primary"><i class="far fa-star"> </i> Add fo favorites</a>
+ 
+                  </th>
+                </tr>
+              </table>
+             
+
+              
+              <p class="w">{{products.description}}</p>
+            </div>
+          </div>
+        </div>
+  </div>
+        </section>
+
+<div class="container">
+  
+      </div>
+        </body>
+        </html>

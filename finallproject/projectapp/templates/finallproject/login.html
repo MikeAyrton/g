@@ -1,0 +1,148 @@
+{% load static %}
+{% load socialaccount %}
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Aroma Shop - Login</title>
+	<link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/nouislider/nouislider.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %} ">
+  <style>
+	  
+	  .div1 i{
+		border: 1px #384aeb solid;
+		padding: 2% 3%;
+		padding: 12px 13px;
+		border-radius: 30px;
+		margin: 0px 10px 0px;
+		background: #384aeb;
+		
+	  }
+	  .div1 li{
+		display: inline-flex;
+	  }
+	  .fa-twitter-square{
+		color: #00acee;
+	  }
+	  .fa-facebook-square{
+		color: #3b5998 ;
+	  }
+	  .a{
+		margin-left: 3px; 
+		font-family: 'Oswald',sans-serif;
+		text-transform: uppercase; 
+		color: #fff;
+		text-decoration: none;
+	  }
+	  .div1 ul{
+		  text-decoration: none;
+	  }
+	  .div1 li{
+		  text-decoration: none;
+	  }
+	  .div1 i:hover{
+		  background-color: #fff;
+		  color: #000;
+	  }
+	 
+
+
+	  
+  </style>
+</head>
+<body>
+	<!--================ Start Header Menu Area =================-->
+
+	<!--================ End Header Menu Area =================-->
+  
+  <!-- ================ start banner area ================= -->	
+	
+	<!-- ================ end banner area ================= -->
+  
+  <!--================Login Box Area =================-->
+	<section class="login_box_area section-margin">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login_box_img">
+						<div class="hover">
+							<h4>New to our website?</h4>
+							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+							<a class="button button-account" href="{% url 'register' %}">Create an Account</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="login_form_inner">
+						<h3>Log in to enter</h3>
+						<form class="row login_form" action="{% url 'login' %}" method="POST" >
+							{% csrf_token %}
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" name="username" placeholder="Username">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="password" class="form-control"  name="password1" placeholder="Password">
+							</div>
+
+							<div class="div1" style="font-size: 17px; display: flex; margin: 0 auto;">
+								<ul>
+									<li class="class_facebook"><i class="fab fa-google"><a class='a' href = "{% provider_login_url 'google' %}?next=/">Google</a></i></li>
+								</ul>
+								<ul>
+									<li class="class_facebook"><i class="fab fa-facebook-square"><a class='a' href="{% provider_login_url 'facebook' method='oauth2' %}">Facebook</a></i></li>
+								</ul>
+							</div>
+															
+
+							<div class="col-md-12 form-group">
+<br>
+						
+							<div class="col-md-12 form-group">
+								<button type="submit" value="submit" class="button button-login w-100">Log In</button>
+							</div>
+							{% for message in messages %}
+							<p id="messages">{{message}}</p>
+							{% endfor %}
+						</form>
+					</div>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Login Box Area =================-->
+
+
+
+  <!--================ Start footer Area  =================-->	
+
+	<!--================ End footer Area  =================-->
+
+
+
+  <script src="{% static 'vendors/jquery/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'vendors/bootstrap/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendors/skrollr.min.js' %}"></script>
+  <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'vendors/nice-select/jquery.nice-select.min.js' %}"></script>
+  <script src="{% static 'vendors/jquery.ajaxchimp.min.js' %}"></script>
+  <script src="{% static 'vendors/mail-script.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+  <script src="https://kit.fontawesome.com/0ccc0471da.js" crossorigin="anonymous"></script>
+</body>
+</html>
