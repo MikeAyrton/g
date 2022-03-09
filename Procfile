@@ -1,1 +1,1 @@
-web: gunicorn FFinall.wsgi
+web: gunicorn finallproject.wsgi
