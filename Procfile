@@ -1,1 +1,1 @@
-web: gunicorn FFInall.wsgi --log-file -
+web: gunicorn finallproject.wsgi --log-file -
